@@ -1,0 +1,120 @@
+<!-- shared styles for all elements and index.html -->
+<dom-module id="shared-styles">
+  <template>
+    <style>
+
+      h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+        padding: 0;
+        color: var(--primary-text-color);
+        line-height: 200%;
+      }
+
+      h1 {
+        font-weight: 300;
+        font-size: 112px;
+      }
+
+      h2 {
+        font-weight: 400;
+        font-size: 56px;
+      }
+
+      h3 {
+        font-weight: 400;
+        font-size: 45px;
+      }
+
+      h4 {
+        font-weight: 400;
+        font-size: 34px;
+      }
+
+      h5 {
+        font-weight: 400;
+        font-size: 24px;
+      }
+
+      h6 {
+        font-weight: 500;
+        font-size: 20px;
+      }
+
+      .page-title {
+        @apply(--paper-font-display2);
+      }
+
+      app-header {
+        background:
+      }
+
+      paper-button {
+      }
+
+      paper-button[colorful] {
+        background-color: var(--accent-color);
+        color: var(--text-primary-color);
+      }
+
+      paper-button[small] {
+
+      }
+
+      paper-button[disabled] {
+        @apply(--paper-button-disabled);
+        color: var(--disabled-text-color);
+      }
+
+      /*.content {*/
+      /*@apply(--layout-horizontal);*/
+      /*@apply(--layout-center-justified);*/
+      /*}*/
+
+      .content-area {
+        @apply(--layout-horizontal);
+        @apply(--layout-center-justified);
+      }
+
+      register-user {
+        width: 900px;
+      }
+
+      .form-actions {
+        margin-top: 25px;
+        margin-bottom: 25px;
+      }
+
+      paper-card {
+        margin: 5px;
+        max-width: 400px;
+      }
+
+      @media (max-width: 950px) {
+        paper-card {
+          margin: 5px;
+          max-width: 100%;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .page-title {
+          font-size: 24px !important;
+        }
+
+        .content-area {
+
+        }
+
+        paper-card {
+          margin: 5px;
+          max-width: 100%;
+        }
+
+        register-user {
+          width: 100%;
+        }
+
+      }
+    </style>
+  </template>
+</dom-module>

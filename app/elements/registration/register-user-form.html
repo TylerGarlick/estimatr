@@ -1,0 +1,56 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/classes/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+
+<dom-module id="register-user-form">
+  <template>
+    <style include="shared-styles"></style>
+    <style>
+      :host {
+        display: block;
+        @apply(--layout-vertical);
+      }
+    </style>
+
+    <form id="registration" is="iron-form" disable-native-validation>
+      <paper-input name="firstName" label="First Name" required error-message="First Name is required" bind-value="{{user.firstName}}"></paper-input>
+      <paper-input name="lastName" label="Last Name" required error-message="Last Name is required" bind-value="{{user.lastName}}"></paper-input>
+      <paper-input name="email" label="Email" type="email" required error-message="Email is invalid and required" bind-value="{{user.email}}"></paper-input>
+      <paper-input name="Password" label="Password" type="password" required minLength="7" error-message="Password is required and must be at least 7 characters long" char-counter bind-value="{{user.password}}"></paper-input>
+
+      <div class="form-actions">
+        <paper-button on-click="_onRegisterClicked" disabled="{{!isValid}}" raised colorful>Register</paper-button>
+      </div>
+    </form>
+
+  </template>
+</dom-module>
+
+<script>
+
+  Polymer({
+    is: 'register-user-form',
+
+    properties: {
+      user: {
+        type: Object, notify: true, value: function () {
+          return {};
+        }
+      },
+    },
+
+    _onRegisterClicked: function () {
+      if (this.$.registration.validate()) {
+        var user = Polymer.dom(this.root).querySelector('form').serialize();
+        this.fire('user-validated', user);
+      }
+    }
+
+
+  });
+
+
+</script>

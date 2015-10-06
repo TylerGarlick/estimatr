@@ -1,0 +1,41 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/classes/iron-flex-layout.html">
+<link rel="import" href="register-user-form.html">
+
+<dom-module id="register-user">
+  <template>
+    <style include="shared-styles"></style>
+    <style>
+      :host {
+        @apply(‑‑layout-vertical);
+      }
+
+      paper-material {
+        padding: 35px;
+      }
+
+    </style>
+
+    <h2>Registration</h2>
+
+    <paper-material elevation="1">
+      <register-user-form id="user" on-user-validated="_userValidated"></register-user-form>
+    </paper-material>
+
+  </template>
+</dom-module>
+
+<script>
+
+  Polymer({
+    is: 'register-user',
+
+    _userValidated: function (e, detail) {
+      console.log(detail);
+    }
+
+  });
+
+
+</script>
