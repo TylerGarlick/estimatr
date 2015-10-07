@@ -1,0 +1,21 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/classes/iron-flex-layout.html">
+<link rel="import" href="card-deck.html">
+
+<dom-module id="project-play">
+  <template>
+    <style>
+      :host {
+        @apply(--layout-vertical);
+      }
+    </style>
+    <div class="flex"></div>
+    <card-deck id="deck"></card-deck>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: 'project-play'
+  })
+</script>

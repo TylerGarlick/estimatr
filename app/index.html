@@ -66,175 +66,108 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <template is="dom-bind" id="app">
 
       <app-header-layout>
-        <app-header condenses waterfall>
+        <app-header waterfall fixed>
           <app-toolbar>
             <div title>Estimatr</div>
             <div class="flex"></div>
-            <div>
-              <iron-icon icon="icons:more-vert"></iron-icon>
-            </div>
+            <paper-menu-button horizontal-offset="15" horizontal-align="right" vertical-offset="15">
+              <paper-icon-button icon="icons:more-vert" class="dropdown-trigger"></paper-icon-button>
+              <paper-menu class="dropdown-content">
+                <paper-item>Settings</paper-item>
+                <paper-item>Sync with JIRA</paper-item>
+                <paper-item>Logout</paper-item>
+              </paper-menu>
+            </paper-menu-button>
           </app-toolbar>
         </app-header>
-        <div>
-          <more-route-selector>
-            <iron-pages>
-              <section route="/">
-                <div class="horizontal layout wrap">
 
-                  <paper-card heading="Project One">
-                    <div class="card-content">
-                      A useful description about the project, team or any type of categorization that makes sense.
-                    </div>
-                    <div class="card-actions">
-                      <paper-button role="button">Invite</paper-button>
-                      <paper-button role="button">Update</paper-button>
-                    </div>
-                  </paper-card>
+        <iron-pages attr-for-selected="data-route" selected="{{route}}">
+          <section data-route="home">
+            <div class="content">
+              <h2>Home</h2>
+            </div>
+          </section>
 
-                  <paper-card heading="Project One">
-                    <div class="card-content">
-                      A useful description about the project, team or any type of categorization that makes sense.
-                    </div>
-                    <div class="card-actions">
-                      <paper-button>Invite</paper-button>
-                      <paper-button>Update</paper-button>
-                    </div>
-                  </paper-card>
-                  <paper-card heading="Project One">
-                    <div class="card-content">
-                      A useful description about the project, team or any type of categorization that makes sense.
-                    </div>
-                    <div class="card-actions">
-                      <paper-button>Invite</paper-button>
-                      <paper-button>Update</paper-button>
-                    </div>
-                  </paper-card>
-                  <paper-card heading="Project One">
-                    <div class="card-content">
-                      A useful description about the project, team or any type of categorization that makes sense.
-                    </div>
-                    <div class="card-actions">
-                      <paper-button>Invite</paper-button>
-                      <paper-button>Update</paper-button>
-                    </div>
-                  </paper-card>
-                  <paper-card heading="Project One">
-                    <div class="card-content">
-                      A useful description about the project, team or any type of categorization that makes sense.
-                    </div>
-                    <div class="card-actions">
-                      <paper-button>Invite</paper-button>
-                      <paper-button>Update</paper-button>
-                    </div>
-                  </paper-card>
-                </div>
-              </section>
-              <section route="/projects">
-                <h1>Projects</h1>
-              </section>
-              <section route="/projects/:projectId">
-                <h1>Project</h1>
-              </section>
-              <section route="/projects/:projectId/play">
-                <h1>Play</h1>
-              </section>
-              <section route="/projects/:projectId/edit">
-                <h1>Edit</h1>
-              </section>
-              <section route="/register">
-                <div class="content-area">
-                  <register-user id="register"></register-user>
-                </div>
-              </section>
-            </iron-pages>
-          </more-route-selector>
-        </div>
+          <section data-route="projects">
+            <div class="content">
+              <paper-fab class="add-project" icon="add"></paper-fab>
+              <div class="horizontal layout wrap">
+                <paper-card heading="Project One" image="http://placehold.it/350x150">
+                  <div class="card-content">
+                    A useful description about the project, team or any type of categorization that makes sense.
+                  </div>
+                  <div class="card-actions">
+                    <paper-button role="button">Invite</paper-button>
+                    <paper-button role="button">Update</paper-button>
+                  </div>
+                </paper-card>
+
+                <paper-card heading="Project Two" image="http://placehold.it/350x150">
+                  <div class="card-content">
+                    A useful description about the project, team or any type of categorization that makes sense.
+                  </div>
+                  <div class="card-actions">
+                    <paper-button>Invite</paper-button>
+                    <paper-button>Update</paper-button>
+                  </div>
+                </paper-card>
+                <paper-card heading="Project Three">
+                  <div class="card-content">
+                    A useful description about the project, team or any type of categorization that makes sense.
+                  </div>
+                  <div class="card-actions">
+                    <paper-button>Invite</paper-button>
+                    <paper-button>Update</paper-button>
+                  </div>
+                </paper-card>
+                <paper-card heading="Project Four">
+                  <div class="card-content">
+                    A useful description about the project, team or any type of categorization that makes sense.
+                  </div>
+                  <div class="card-actions">
+                    <paper-button>Invite</paper-button>
+                    <paper-button>Update</paper-button>
+                  </div>
+                </paper-card>
+                <paper-card heading="Project One">
+                  <div class="card-content">
+                    A useful description about the project, team or any type of categorization that makes sense.
+                  </div>
+                  <div class="card-actions">
+                    <paper-button>Invite</paper-button>
+                    <paper-button>Update</paper-button>
+                  </div>
+                </paper-card>
+              </div>
+            </div>
+          </section>
+
+          <section data-route="viewProject">
+            <div class="content">
+              <h3>Project <span>{{params.id}}</span></h3>
+            </div>
+          </section>
+
+          <section data-route="editProject">
+            <div class="content">
+              <h3>Update Project <span>{{params.id}}</span></h3>
+            </div>
+          </section>
+
+          <section data-route="createProject">
+            <div class="content">
+              <h3>Create Project</h3>
+            </div>
+          </section>
+
+          <section data-route="meetUp">
+            <div class="content">
+              <h3>Meet Up <span>{{params.id}}</span></h3>
+            </div>
+          </section>
+        </iron-pages>
+
       </app-header-layout>
-
-
-      <!--<paper-drawer-panel id="paperDrawerPanel" force-narrow>-->
-      <!--&lt;!&ndash; Drawer Scroll Header Panel &ndash;&gt;-->
-      <!--<paper-scroll-header-panel drawer fixed>-->
-
-      <!--&lt;!&ndash; Drawer Toolbar &ndash;&gt;-->
-      <!--<paper-toolbar id="drawerToolbar">-->
-      <!--&lt;!&ndash;<span class="paper-font-title">Menu</span>&ndash;&gt;-->
-      <!--</paper-toolbar>-->
-
-      <!--&lt;!&ndash; Drawer Content &ndash;&gt;-->
-      <!--<paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">-->
-      <!--<a data-route="home" href="/#!/projects">-->
-      <!--<iron-icon icon="home"></iron-icon>-->
-      <!--<span>Projects</span>-->
-      <!--</a>-->
-
-      <!--<a data-route="users" href="/users">-->
-      <!--<iron-icon icon="info"></iron-icon>-->
-      <!--<span>Users</span>-->
-      <!--</a>-->
-
-      <!--&lt;!&ndash;<a data-route="contact" href="/contact">&ndash;&gt;-->
-      <!--&lt;!&ndash;<iron-icon icon="mail"></iron-icon>&ndash;&gt;-->
-      <!--&lt;!&ndash;<span>Contact</span>&ndash;&gt;-->
-      <!--&lt;!&ndash;</a>&ndash;&gt;-->
-      <!--</paper-menu>-->
-      <!--</paper-scroll-header-panel>-->
-
-      <!--&lt;!&ndash; Main Area &ndash;&gt;-->
-      <!--<paper-scroll-header-panel main condenses keep-condensed-header>-->
-
-      <!--&lt;!&ndash; Main Toolbar &ndash;&gt;-->
-      <!--<paper-toolbar id="mainToolbar">-->
-      <!--<paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>-->
-      <!--<span class="flex"></span>-->
-
-      <!--&lt;!&ndash; Toolbar icons &ndash;&gt;-->
-      <!--<paper-icon-button icon="refresh"></paper-icon-button>-->
-      <!--<paper-icon-button icon="search"></paper-icon-button>-->
-
-      <!--&lt;!&ndash; Application name &ndash;&gt;-->
-      <!--<div class="middle middle-container center horizontal layout">-->
-      <!--<div class="app-name">Estimatr</div>-->
-      <!--</div>-->
-
-      <!--&lt;!&ndash; Application sub title &ndash;&gt;-->
-      <!--&lt;!&ndash;<div class="bottom bottom-container center horizontal layout">&ndash;&gt;-->
-      <!--&lt;!&ndash;<div class="bottom-title paper-font-subhead">The future of the web today</div>&ndash;&gt;-->
-      <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-      <!--</paper-toolbar>-->
-
-      <!--&lt;!&ndash; Main Content &ndash;&gt;-->
-      <!--<div class="content">-->
-      <!--<more-route-selector>-->
-      <!--<iron-pages>-->
-      <!--<section route="/">-->
-      <!--Home Page-->
-      <!--</section>-->
-      <!--<section route="/projects">-->
-      <!--<h1>Projects</h1>-->
-      <!--</section>-->
-      <!--<section route="/projects/:projectId">-->
-      <!--<h1>Project</h1>-->
-      <!--</section>-->
-      <!--<section route="/projects/:projectId/play">-->
-      <!--<h1>Play</h1>-->
-      <!--</section>-->
-      <!--<section route="/projects/:projectId/edit">-->
-      <!--<h1>Edit</h1>-->
-      <!--</section>-->
-      <!--<section route="/register">-->
-      <!--<div class="content-area">-->
-      <!--<register-user id="register"></register-user>-->
-      <!--</div>-->
-      <!--</section>-->
-      <!--</iron-pages>-->
-      <!--</more-route-selector>-->
-
-
-      <!--</div>-->
-      <!--</paper-scroll-header-panel>-->
-      <!--</paper-drawer-panel>-->
 
       <!-- Uncomment next block to enable Service Worker support (1/2) -->
       <!--

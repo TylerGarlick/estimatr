@@ -8,17 +8,50 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../bower_components/more-routing/more-routing.html">
+<script src="../bower_components/page/page.js"></script>
+<script>
+  window.addEventListener('WebComponentsReady', function () {
 
-<more-routing-config driver="hash"></more-routing-config>
+    function scrollToTop(ctx, next) {
+//      app.scrollPageToTop();
+      next();
+    }
 
-<more-route name="root" path="/"></more-route>
+    // Routes
+    page('/', scrollToTop, function () {
+      app.route = 'home';
+    });
 
-<more-route name="projects" path="/projects">
-  <more-route name="project" path="/:projectId">
-    <more-route name="play" path="/edit"></more-route>
-    <more-route name="play" path="/play"></more-route>
-  </more-route>
-</more-route>
+    page('/projects', scrollToTop, function () {
+      app.route = 'projects';
+    });
 
-<more-route name="register" path="/register"></more-route>
+    page('/projects/:id', scrollToTop, function (data) {
+      app.route = 'viewProject';
+      app.params = data.params;
+    });
+
+    page('/projects/:id/edit', scrollToTop, function (data) {
+      app.route = 'editProject';
+      app.params = data.params;
+    });
+
+    page('/projects/new', scrollToTop, function (data) {
+      app.route = 'createProject';
+      app.params = data.params;
+    });
+
+    page('/projects/:id/meet', scrollToTop, function (data) {
+      app.route = 'meetUp';
+      app.params = data.params;
+    });
+
+    // add #! before urls
+    page({
+      hashbang: true
+    });
+
+  });
+
+
+</script>
