@@ -26,6 +26,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       app.route = 'projects';
     });
 
+    page('/projects/new', scrollToTop, function () {
+      app.route = 'createProject';
+    });
+
     page('/projects/:id', scrollToTop, function (data) {
       app.route = 'viewProject';
       app.params = data.params;
@@ -36,14 +40,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       app.params = data.params;
     });
 
-    page('/projects/new', scrollToTop, function (data) {
-      app.route = 'createProject';
-      app.params = data.params;
-    });
+
 
     page('/projects/:id/meet', scrollToTop, function (data) {
       app.route = 'meetUp';
       app.params = data.params;
+    });
+
+    page('/register', scrollToTop, function () {
+      app.route = 'register';
     });
 
     // add #! before urls

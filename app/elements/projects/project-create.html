@@ -1,0 +1,39 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="../../bower_components/paper-material/paper-material.html">
+<link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<dom-module id="project-create">
+  <template>
+    <style include="shared-styles"></style>
+    <style is="custom-style">
+      :host {
+        display: block;
+      }
+
+      paper-material {
+        padding: 35px;
+        width: 70%;
+      }
+    </style>
+    <paper-material elevation="1">
+      <h3>New Project</h3>
+
+      <paper-input id="name" name="name" label="Name" required auto-validate error-message="Project Name is required"></paper-input>
+      <paper-textarea id="description" name="description" label="Description"></paper-textarea>
+
+      <div class="form-actions">
+        <paper-button id="save" colorful raised>Save</paper-button>
+      </div>
+    </paper-material>
+
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: 'project-create'
+  });
+</script>

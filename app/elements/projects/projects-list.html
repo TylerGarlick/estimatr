@@ -1,0 +1,111 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/classes/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<script src="../../bower_components/page/page.js"></script>
+
+<dom-module id="projects-list">
+  <template>
+    <style is="custom-style">
+      :host {
+        display: block;
+      }
+
+      paper-card {
+        margin: 5px;
+        max-width: 400px;
+      }
+
+      .add-project {
+        position: absolute;
+        right: 40px;
+        top: 25px;
+      }
+
+
+      @media (max-width: 950px) {
+        paper-card {
+          margin: 5px;
+          max-width: 100%;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .page-title {
+          font-size: 24px !important;
+        }
+
+        .content-area {
+
+        }
+
+        paper-card {
+          margin: 5px;
+          max-width: 100%;
+        }
+
+        register-user {
+          width: 100%;
+        }
+
+      }
+    </style>
+    <paper-fab class="add-project" icon="add" on-tap="handleAddProject"></paper-fab>
+    <div class="horizontal layout wrap">
+      <paper-card heading="Project One" image="http://placehold.it/350x150">
+        <div class="card-content">
+          A useful description about the project, team or any type of categorization that makes sense.
+        </div>
+        <div class="card-actions">
+          <paper-button role="button">Invite</paper-button>
+          <paper-button role="button">Update</paper-button>
+        </div>
+      </paper-card>
+
+      <paper-card heading="Project Two" image="http://placehold.it/350x150">
+        <div class="card-content">
+          A useful description about the project, team or any type of categorization that makes sense.
+        </div>
+        <div class="card-actions">
+          <paper-button>Invite</paper-button>
+          <paper-button>Update</paper-button>
+        </div>
+      </paper-card>
+      <paper-card heading="Project Three">
+        <div class="card-content">
+          A useful description about the project, team or any type of categorization that makes sense.
+        </div>
+        <div class="card-actions">
+          <paper-button>Invite</paper-button>
+          <paper-button>Update</paper-button>
+        </div>
+      </paper-card>
+      <paper-card heading="Project Four">
+        <div class="card-content">
+          A useful description about the project, team or any type of categorization that makes sense.
+        </div>
+        <div class="card-actions">
+          <paper-button>Invite</paper-button>
+          <paper-button>Update</paper-button>
+        </div>
+      </paper-card>
+      <paper-card heading="Project One">
+        <div class="card-content">
+          A useful description about the project, team or any type of categorization that makes sense.
+        </div>
+        <div class="card-actions">
+          <paper-button>Invite</paper-button>
+          <paper-button>Update</paper-button>
+        </div>
+      </paper-card>
+    </div>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: 'projects-list',
+    handleAddProject: function () {
+      page('/projects/new');
+    }
+  });
+</script>

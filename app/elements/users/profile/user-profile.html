@@ -1,4 +1,6 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/iron-localstorage/iron-localstorage.html">
+
 
 <dom-module id="user-profile">
   <template>
@@ -8,11 +10,31 @@
         color: var(--secondary-text-color);
       }
     </style>
+    <iron-localstorage id="profile" value="{{user}}" on-iron-localstorage-load-empty="_handleUnAuthenticatedUser"></iron-localstorage>
+
     <span>Tyler Garlick</span>
   </template>
 </dom-module>
+
 <script>
   Polymer({
-    is: 'user-profile'
-  })
+    is: 'user-profile',
+
+    properties: {
+      user: { type: Object }
+    },
+
+    logout: function (session) {
+
+    },
+
+    login: function(session) {
+
+    },
+
+
+    _handleUnAuthenticatedUser: function (e, detail) {
+      this.fire('iron-signal', { name: 'unauthenticated-user' })
+    }
+  });
 </script>
